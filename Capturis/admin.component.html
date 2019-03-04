@@ -1,0 +1,198 @@
+
+<nav>
+  <ul>
+    <li>
+      <a routerLink="">
+        <i class="material-icons">reorder</i>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+<mat-card (click) = "adminclicked()">
+  <mat-card-header>
+   Admin 
+   
+  </mat-card-header>
+</mat-card>
+<div *ngIf = "!isCollapsed">
+  <p> Admin Table works</p>
+  <mat-table #table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> Employee ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Empployee Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput placeholder="Name" [value]="element.name" [(ngModel)]="element.name">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Skills </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput placeholder="Symbol" [value]="element.symbol" [(ngModel)]="element.symbol">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <!-- Fav Column -->
+      <ng-container matColumnDef="fav">
+        <mat-header-cell *matHeaderCellDef> Proficiency </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <mat-select [(value)]="element.fav" placeholder="Favorite">
+              <mat-option>None</mat-option>
+              <mat-option value="Yes">Yes</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
+
+
+
+  
+
+
+<mat-card (click) = "leaderclicked()" >
+  <mat-card-header>
+  Leader
+  </mat-card-header>
+</mat-card>
+
+<div *ngIf = "!leaderCollapsed">
+    <p> Leader Table works</p>
+    <mat-table #table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> Employee ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Employee Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never">
+              <input matInput placeholder="Name" [value]="element.name" [(ngModel)]="element.name">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Skills </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never">
+              <input matInput placeholder="Symbol" [value]="element.symbol" [(ngModel)]="element.symbol">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Fav Column -->
+        <ng-container matColumnDef="fav">
+          <mat-header-cell *matHeaderCellDef> Proficiency </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never">
+              <mat-select [(value)]="element.fav" placeholder="Favorite">
+                <mat-option>None</mat-option>
+                <mat-option value="Yes">Yes</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+  </div>
+
+<mat-card (click)= "employeeclicked()">
+<mat-card-header>
+Employee
+</mat-card-header>
+</mat-card>
+
+<div *ngIf = "!employeeCollapsed">
+  <p> Employee Table works</p>
+  <mat-table #table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> Employee ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Employee Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput placeholder="Name" [value]="element.name" [(ngModel)]="element.name">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef> Position  </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Skills </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <input matInput placeholder="Symbol" [value]="element.symbol" [(ngModel)]="element.symbol">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <!-- Fav Column -->
+      <ng-container matColumnDef="fav">
+        <mat-header-cell *matHeaderCellDef> Favorite </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field floatLabel="never">
+            <mat-select [(value)]="element.fav" placeholder="Favorite">
+              <mat-option>None</mat-option>
+              <mat-option value="Yes">Yes</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
+
+
